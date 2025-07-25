@@ -1,13 +1,19 @@
-def mood_assistant_bot(mood):
+import streamlit as st
 
+st.title("🤖 Mood Assistant Bot")
+
+mood = st.text_input("How are you feeling today? (happy, sad, angry, tired)").strip().lower()
+
+if st.button("Get Response"):
     if mood == "happy":
-        print("That's great! keep smiling")
+        st.success("That's great! Keep smiling and spreading positive vibes 🌟")
     elif mood == "sad":
-        print("I'm here for you. Take a short break and breathe.")
+        st.info("It's okay to feel sad sometimes. Take care of yourself ❤️")
+    elif mood == "angry":
+        st.warning("Take a deep breath... It will pass. Try relaxing for a bit 😌")
     elif mood == "tired":
-        print("Rest is important. Be kind to yourself.")
+        st.info("Make sure you rest and hydrate. You deserve it! 💧")
+    elif mood:
+        st.write("Hmm, I don't recognize that mood, but I'm here for you! 💙")
     else:
-        print("Thanks for sharing. Wishing you a good day!")
-mood = input("How are you feeling today?")
-mood = mood.lower()
-mood_assistant_bot(mood)
+        st.write("Please type your mood to get a response.")
